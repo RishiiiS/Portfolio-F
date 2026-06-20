@@ -1,0 +1,31 @@
+.about-section {
+  padding: 8rem 10%;
+  min-height: 60vh;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+.about-content {
+  max-width: 800px;
+  text-align: left;
+}
+
+.about-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--accent-color);
+  letter-spacing: -1px;
+}
+
+.about-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #4b5563;
+}
