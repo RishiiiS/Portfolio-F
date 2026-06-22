@@ -2,45 +2,41 @@ import React from 'react';
 import './Projects.css';
 
 const Projects = () => {
+  // Placeholder data with different aspect ratios
   const projects = [
-    {
-      id: 1,
-      title: 'E-Commerce Platform',
-      category: 'Web Development',
-      description: 'A full-stack e-commerce solution with seamless checkout and a modern, responsive UI.'
-    },
-    {
-      id: 2,
-      title: 'Fintech Dashboard',
-      category: 'UI/UX Design',
-      description: 'A data-heavy financial dashboard designed for clarity, data visualization, and ease of use.'
-    },
-    {
-      id: 3,
-      title: 'Immersive Portfolio',
-      category: '3D Experience',
-      description: 'An interactive 3D web experience built with React Three Fiber to showcase creative work.'
-    }
+    { id: 1, type: 'wide', color: '#e5e7eb' },
+    { id: 2, type: 'tall', color: '#d1d5db' },
+    { id: 3, type: 'square', color: '#9ca3af' },
+    { id: 4, type: 'tall', color: '#6b7280' },
+    { id: 5, type: 'wide', color: '#4b5563' },
+    { id: 6, type: 'square', color: '#374151' },
   ];
 
   return (
     <section className="projects-section">
-      <div className="projects-header">
-        <h2 className="projects-title">Featured Work</h2>
-        <p className="projects-subtitle">Some of my recent projects.</p>
+      <div className="projects-container">
+        <div className="projects-header-wrapper">
+          {/* <span className="projects-kicker">PROJECTS</span> */}
+          <h2 className="projects-headline">
+            Work
+          </h2>
+        </div>
       </div>
       
-      <div className="projects-grid">
-        {projects.map(project => (
-          <div key={project.id} className="project-card">
-            <div className="project-image-placeholder"></div>
-            <div className="project-info">
-              <span className="project-category">{project.category}</span>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
+      {/* Infinite Marquee Container */}
+      <div className="marquee-wrapper">
+        <div className="marquee-content">
+          {/* Duplicate the items for seamless infinite scroll animation */}
+          {[...projects, ...projects].map((project, index) => (
+            <div 
+              key={`${project.id}-${index}`} 
+              className={`project-image-box ${project.type}`}
+              style={{ backgroundColor: project.color }}
+            >
+              {/* Future project images go here */}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

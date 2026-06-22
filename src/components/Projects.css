@@ -1,62 +1,18 @@
 .projects-section {
-  padding: 8rem 10%;
-  min-height: 60vh;
+  padding: 8rem 0; /* No horizontal padding so marquee can bleed edge to edge */
+  min-height: 70vh;
   background-color: var(--bg-color);
   position: relative;
   z-index: 10;
-}
-
-.projects-header {
-  margin-bottom: 4rem;
-}
-
-.projects-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--accent-color);
-  letter-spacing: -1px;
-  margin-bottom: 0.5rem;
-}
-
-.projects-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
-  color: #6b7280;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 3rem;
-}
-
-.project-card {
-  background-color: #ffffff;
-  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
 }
 
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+.projects-container {
+  padding: 0 10%; /* Keep text aligned with the rest of the site */
+  margin-bottom: 18rem;
 }
 
-.project-image-placeholder {
-  width: 100%;
-  height: 240px;
-  background-color: #e5e7eb;
-}
-
-.project-info {
-  padding: 2rem;
-}
-
-.project-category {
+.projects-kicker {
   font-family: 'Inter', sans-serif;
   font-size: 0.85rem;
   font-weight: 600;
@@ -64,30 +20,100 @@
   letter-spacing: 1px;
   color: #9ca3af;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.project-title {
+.projects-headline {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  letter-spacing: -2px;
+  line-height: 1.1;
+  max-width: 900px;
 }
 
-.project-desc {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: #4b5563;
+/* Marquee Animation styles */
+.marquee-wrapper {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
 }
 
+.marquee-content {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  width: max-content;
+  gap: 2rem;
+  padding: 0 1rem;
+  animation: scrollMarquee 35s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused; /* Pause on hover for better UX */
+}
+
+.project-image-box {
+  flex-shrink: 0;
+  border-radius: 4px; /* Slight rounding like the image */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.marquee-wrapper:hover .project-image-box {
+  opacity: 0.5; /* Dim others when hovering */
+}
+
+.marquee-wrapper .project-image-box:hover {
+  transform: scale(1.05);
+  opacity: 1; /* Highlight current */
+}
+
+/* Different aspect ratios to match the dynamic layout in the reference image */
+.wide {
+  width: 380px;
+  height: 250px;
+}
+
+.tall {
+  width: 260px;
+  height: 350px;
+}
+
+.square {
+  width: 300px;
+  height: 300px;
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate exactly half the width to seamlessly loop */
+    transform: translateX(calc(-50% - 1rem)); 
+  }
+}
+
+/* Media query for smaller screens */
 @media (max-width: 768px) {
   .projects-section {
-    padding: 5rem 5%;
+    padding: 5rem 0;
   }
-  .projects-title {
+  
+  .projects-container {
+    padding: 0 5%;
+    margin-bottom: 3rem;
+  }
+
+  .projects-headline {
     font-size: 2.5rem;
+    letter-spacing: -1px;
   }
+  
+  .wide { width: 300px; height: 200px; }
+  .tall { width: 220px; height: 320px; }
+  .square { width: 280px; height: 280px; }
 }

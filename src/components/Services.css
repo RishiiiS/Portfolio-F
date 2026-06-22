@@ -1,72 +1,82 @@
 .services-section {
   padding: 8rem 10%;
-  min-height: 60vh;
+  min-height: 50vh;
   background-color: var(--bg-color);
   position: relative;
   z-index: 10;
+  display: flex;
+  justify-content: center;
 }
 
-.services-header {
-  margin-bottom: 4rem;
+.services-container {
+  width: 100%;
+  max-width: 1200px;
 }
 
 .services-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 700;
   color: var(--accent-color);
-  letter-spacing: -1px;
-  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+  margin-bottom: 4rem;
 }
 
-.services-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
-  color: #6b7280;
+.services-list {
+  display: flex;
+  flex-direction: column;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+.service-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.service-card {
-  padding: 2.5rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.service-row:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-.service-card-title {
+.service-row-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: var(--accent-color);
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--text-color);
   letter-spacing: -0.5px;
 }
 
-.service-card-desc {
+.service-row-tags {
   font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
-  line-height: 1.6;
-  color: #4b5563;
+  color: #6b7280;
+  font-weight: 400;
+  letter-spacing: 0px;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 768px) {
   .services-section {
     padding: 5rem 5%;
   }
   
   .services-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .service-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 2rem 0;
+  }
+  
+  .service-row-title {
+    font-size: 1.5rem;
+  }
+  
+  .service-row-tags {
+    font-size: 0.95rem;
   }
 }

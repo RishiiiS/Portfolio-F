@@ -5,35 +5,41 @@ const Services = () => {
   const services = [
     {
       id: 1,
-      title: 'Web Development',
-      description: 'Building fast, responsive, and scalable modern web applications using cutting-edge technologies.'
+      title: 'Frontend Development',
+      tags: ['React', 'Next.js', 'Vite', 'UI Implementation']
     },
     {
       id: 2,
-      title: 'UI/UX Design',
-      description: 'Crafting intuitive, user-centric interfaces with a focus on premium aesthetics and engaging user experiences.'
+      title: 'Backend Systems',
+      tags: ['Node.js', 'Java', 'Spring Boot', 'APIs']
     },
     {
       id: 3,
-      title: 'Interactive Experiences',
-      description: 'Integrating stunning 3D objects and animations into the browser to make your digital presence truly unforgettable.'
+      title: 'Full Stack Solutions',
+      tags: ['Web Applications', 'E-Commerce', 'Dashboards']
+    },
+    {
+      id: 4,
+      title: 'Database Architecture',
+      tags: ['SQL', 'System Design', 'Optimization']
     }
   ];
 
   return (
     <section className="services-section">
-      <div className="services-header">
+      <div className="services-container">
         <h2 className="services-title">Services</h2>
-        <p className="services-subtitle">What I can do for you.</p>
-      </div>
-      
-      <div className="services-grid">
-        {services.map(service => (
-          <div key={service.id} className="service-card">
-            <h3 className="service-card-title">{service.title}</h3>
-            <p className="service-card-desc">{service.description}</p>
-          </div>
-        ))}
+        
+        <div className="services-list">
+          {services.map(service => (
+            <div key={service.id} className="service-row">
+              <h3 className="service-row-title">{service.title}</h3>
+              <div className="service-row-tags">
+                {service.tags.join(' • ')}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
