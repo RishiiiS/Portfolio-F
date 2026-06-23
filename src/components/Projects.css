@@ -1,5 +1,5 @@
 .projects-section {
-  padding: 8rem 0; /* No horizontal padding so marquee can bleed edge to edge */
+  padding: 8rem 0;
   min-height: 70vh;
   background-color: var(--bg-color);
   position: relative;
@@ -8,8 +8,8 @@
 }
 
 .projects-container {
-  padding: 0 10%; /* Keep text aligned with the rest of the site */
-  margin-bottom: 18rem;
+  padding: 0 10%;
+  margin-bottom: 9rem;
 }
 
 .projects-kicker {
@@ -33,45 +33,63 @@
   max-width: 900px;
 }
 
-/* Marquee Animation styles */
+/* Scroll Container */
 .marquee-wrapper {
   width: 100vw;
-  overflow: hidden;
   position: relative;
 }
 
-.marquee-content {
+.marquee-scroll-container {
   display: flex;
-  align-items: center; /* Center items vertically */
-  width: max-content;
+  width: 100vw;
+  overflow-x: auto;
   gap: 2rem;
   padding: 0 1rem;
-  animation: scrollMarquee 35s linear infinite;
+  cursor: grab;
+  /* hide native scrollbars for clean look */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
 }
 
-.marquee-content:hover {
-  animation-play-state: paused; /* Pause on hover for better UX */
+.marquee-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.marquee-scroll-container.dragging {
+  cursor: grabbing;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  flex-shrink: 0;
 }
 
 .project-image-box {
   flex-shrink: 0;
-  border-radius: 4px; /* Slight rounding like the image */
+  border-radius: 4px;
   background-size: cover;
   background-position: center;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-  cursor: pointer;
+  user-select: none; /* Prevents text selection while dragging */
 }
 
-.marquee-wrapper:hover .project-image-box {
-  opacity: 0.5; /* Dim others when hovering */
+/* Interaction Effects */
+.marquee-scroll-container:hover .project-image-box {
+  opacity: 0.5; /* Dim others when hovering the container */
 }
 
-.marquee-wrapper .project-image-box:hover {
+.marquee-scroll-container .project-image-box:hover {
   transform: scale(1.05);
   opacity: 1; /* Highlight current */
 }
 
-/* Different aspect ratios to match the dynamic layout in the reference image */
+/* Dragging disables the hover scale to avoid jittering */
+.marquee-scroll-container.dragging .project-image-box {
+  transform: scale(1);
+}
+
+/* Aspect ratios */
 .wide {
   width: 380px;
   height: 250px;
@@ -85,16 +103,6 @@
 .square {
   width: 300px;
   height: 300px;
-}
-
-@keyframes scrollMarquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Translate exactly half the width to seamlessly loop */
-    transform: translateX(calc(-50% - 1rem)); 
-  }
 }
 
 /* Media query for smaller screens */

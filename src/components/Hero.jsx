@@ -20,9 +20,9 @@ const Hero = () => {
       </div>
 
       {/* Small supporting line describing what I do */}
-      <div className="hero-description">
+      {/* <div className="hero-description">
         Freelance Digital Designer & Developer
-      </div>
+      </div> */}
     </main>
   );
 };
