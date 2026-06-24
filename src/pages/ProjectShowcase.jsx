@@ -39,8 +39,8 @@ const ProjectShowcase = () => {
             
             <div className="project-meta">
               <div className="meta-column">
-                <span className="meta-label">CATEGORY</span>
-                <span className="meta-value">{project.category}</span>
+                <span className="meta-label">TECH STACK</span>
+                <span className="meta-value">{project.techStack}</span>
               </div>
               <div className="meta-column">
                 <span className="meta-label">ROLE</span>
@@ -48,11 +48,18 @@ const ProjectShowcase = () => {
               </div>
             </div>
 
-            {project.siteUrl && (
-              <a href={project.siteUrl} target="_blank" rel="noopener noreferrer" className="view-site-btn">
-                VIEW SITE
-              </a>
-            )}
+            <div className="project-actions" style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+              {project.siteUrl && (
+                <a href={project.siteUrl} target="_blank" rel="noopener noreferrer" className="view-site-btn">
+                  VIEW SITE
+                </a>
+              )}
+              {project.githubUrl && (
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="view-site-btn" style={{ backgroundColor: '#111827', color: '#ffffff', borderColor: '#111827' }}>
+                  GITHUB
+                </a>
+              )}
+            </div>
           </div>
 
           {/* Right Column: Visuals */}

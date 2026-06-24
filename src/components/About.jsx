@@ -1,24 +1,77 @@
 import React from 'react';
+import { Database } from 'lucide-react';
 import './About.css';
 
 const About = () => {
   return (
-    <section className="about-section">
-      <div className="about-content">
-        <h2 className="about-title">About Rishi</h2>
-        <p className="about-text">
-          I'm Rishi Seth, a Full Stack Developer focused on building modern digital products that combine thoughtful design with reliable engineering.
-          <br/>
-          My journey started with a curiosity for how technology can solve real-world problems, which gradually evolved into creating web applications, backend systems, and interactive digital experiences. I enjoy turning ideas into scalable products that are both functional and intuitive to use.
-          <br/>
-          Over the past few years, I've worked with technologies such as React, Next.js, Node.js, Java, Spring Boot, SQL, and modern cloud-based tools to develop applications ranging from collaborative platforms to business-focused solutions.
+    <section className="about-section" id="about">
+      <div className="about-container">
+        
+        {/* Left Column: Text Content */}
+        <div className="about-text-content">
+          <div className="about-kicker-wrapper">
+            <span className="about-kicker">ABOUT ME</span>
+            <div className="kicker-line"></div>
+          </div>
           
-          Currently, I'm expanding my expertise through professional experience in software development while continuously exploring better ways to build performant, maintainable, and user-centered systems.
+          <h2 className="about-headline">
+            I turn ideas into scalable digital products
+          </h2>
+          
+          <p className="about-description">
+            With a strong foundation in development and a problem-solving mindset, I build web applications that are fast, reliable, and user-focused.
+          </p>
+        </div>
 
-          I believe great software is not just about writing code—it's about understanding problems, creating meaningful solutions, and delivering experiences that people genuinely enjoy using.
+        {/* Right Column: Skills Diagram */}
+        <div className="about-skills-diagram">
+          {/* Subtle connecting path background */}
+          <svg className="skills-path-svg" width="100%" height="100%" viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice">
+            <path 
+               d="M 120,80 C 250,60 300,160 200,200 C 80,240 100,350 350,350 C 450,350 480,250 400,200" 
+               fill="none" 
+               stroke="#e5e7eb" 
+               strokeWidth="2" 
+               strokeDasharray="6 6" 
+             />
+             <circle cx="280" cy="115" r="4" fill="#d1d5db" />
+             <circle cx="70" cy="220" r="4" fill="#d1d5db" />
+             <circle cx="450" cy="250" r="4" fill="#d1d5db" />
+             <circle cx="390" cy="330" r="4" fill="#d1d5db" />
+          </svg>
 
-When I'm not coding, you'll usually find me learning new technologies, refining product ideas, or experimenting with creative projects that challenge me to think differently.
-        </p>
+          {/* Skill Nodes */}
+          <div className="skill-node node-react">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="skill-icon" />
+            <span>React</span>
+          </div>
+          
+          <div className="skill-node node-next">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" className="skill-icon" />
+            <span>Next.js</span>
+          </div>
+          
+          <div className="skill-node node-node">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="skill-icon" />
+            <span>Node.js</span>
+          </div>
+          
+          <div className="skill-node node-java">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" className="skill-icon" />
+            <span>Java</span>
+          </div>
+          
+          <div className="skill-node node-spring">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" className="skill-icon" />
+            <span>Spring Boot</span>
+          </div>
+          
+          <div className="skill-node node-sql">
+            <Database size={24} color="#111827" strokeWidth={1.5} className="skill-icon" />
+            <span>SQL</span>
+          </div>
+        </div>
+
       </div>
     </section>
   );
